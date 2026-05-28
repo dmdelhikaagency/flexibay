@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "C:\\Users\\ayaan\\.config\\herd\\bin\\php85\\php.exe",
+            "args": [
+                "C:\\Users\\ayaan\\OneDrive\\Desktop\\my-easy-manage\\easyManage\\artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
