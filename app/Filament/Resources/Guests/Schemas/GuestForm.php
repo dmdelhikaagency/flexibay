@@ -5,6 +5,8 @@ namespace App\Filament\Resources\Guests\Schemas;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class GuestForm
@@ -17,37 +19,68 @@ class GuestForm
                     ->required(),
                 TextInput::make('last_name')
                     ->required(),
-                TextInput::make('gender'),
+                Select::make('gender')
+                    ->options([
+                        'male' => 'Male',
+                        'female' => 'Female',
+                        'other' => 'Other',
+                    ])
+                    ->searchable()
+                    ->required(),
                 DatePicker::make('date_of_birth'),
-                TextInput::make('nationality'),
                 TextInput::make('email')
                     ->label('Email address')
-                    ->email(),
+                    ->email()
+                    ->nullable(),
                 TextInput::make('phone')
                     ->tel(),
-                TextInput::make('alternate_phone')
-                    ->tel(),
                 Textarea::make('address')
-                    ->columnSpanFull(),
-                TextInput::make('city'),
-                TextInput::make('state'),
-                TextInput::make('country'),
-                TextInput::make('postal_code'),
-                TextInput::make('id_type'),
+                    ->columnSpanFull()
+                    ->nullable(),
+                TextInput::make('city')->nullable(),
+                TextInput::make('state')->nullable(),
+                TextInput::make('country')->nullable(),
+                TextInput::make('pin_code')->nullable(),
+                Select::make('id_type')
+                    ->options([
+                        'adhaar_card' => 'Aadhaar Card',
+                        'voter_id' => 'Voter ID',
+                        'passport' => 'Passport',
+                        'driver_license' => 'Driver License',
+                        'other' => 'Other',
+                    ])
+                    ->searchable(),
                 TextInput::make('id_number'),
-                TextInput::make('id_document_front'),
-                TextInput::make('id_document_back'),
+                FileUpload::make('id_document_front')
+                    ->image()
+                    ->directory('guests/id-documents')
+                    ->imageEditor()
+                    ->downloadable()
+                    ->openable(),
+                FileUpload::make('id_document_back')
+                    ->image()
+                    ->directory('guests/id-documents')
+                    ->imageEditor()
+                    ->downloadable()
+                    ->openable(),
                 DatePicker::make('check_in_date'),
                 DatePicker::make('check_out_date'),
                 TextInput::make('room_number'),
-                TextInput::make('booking_reference'),
+                TextInput::make('booking_reference')->nullable(),
                 Textarea::make('special_requests')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->nullable(),
                 Textarea::make('internal_notes')
-                    ->columnSpanFull(),
-                TextInput::make('guest_photo'),
-                TextInput::make('company_name'),
-                TextInput::make('gst_number'),
+                    ->columnSpanFull()
+                    ->nullable(),
+                FileUpload::make('photo')
+                    ->image()
+                    ->directory('guests/photos')
+                    ->imageEditor()
+                    ->downloadable()
+                    ->openable(),
+                TextInput::make('company_name')->nullable(),
+                TextInput::make('gst_number')->nullable(),
             ]);
     }
 }
