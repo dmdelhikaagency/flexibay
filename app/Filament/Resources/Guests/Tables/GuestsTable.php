@@ -24,14 +24,10 @@ class GuestsTable
                 TextColumn::make('date_of_birth')
                     ->date()
                     ->sortable(),
-                TextColumn::make('nationality')
-                    ->searchable(),
                 TextColumn::make('email')
                     ->label('Email address')
                     ->searchable(),
                 TextColumn::make('phone')
-                    ->searchable(),
-                TextColumn::make('alternate_phone')
                     ->searchable(),
                 TextColumn::make('city')
                     ->searchable(),
@@ -39,7 +35,7 @@ class GuestsTable
                     ->searchable(),
                 TextColumn::make('country')
                     ->searchable(),
-                TextColumn::make('postal_code')
+                TextColumn::make('pin_code')
                     ->searchable(),
                 TextColumn::make('id_type')
                     ->searchable(),
@@ -59,7 +55,7 @@ class GuestsTable
                     ->searchable(),
                 TextColumn::make('booking_reference')
                     ->searchable(),
-                TextColumn::make('guest_photo')
+                TextColumn::make('photo')
                     ->searchable(),
                 TextColumn::make('company_name')
                     ->searchable(),

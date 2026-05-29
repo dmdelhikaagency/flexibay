@@ -75,6 +75,7 @@ class GuestForm
                     ->nullable(),
                 FileUpload::make('photo')
                     ->image()
+                    ->disk('public')
                     ->directory('guests/photos')
                     ->imageEditor()
                     ->downloadable()

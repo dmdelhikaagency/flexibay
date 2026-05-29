@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Guests\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Schemas\Schema;
 
 class GuestInfolist
@@ -18,14 +20,10 @@ class GuestInfolist
                 TextEntry::make('date_of_birth')
                     ->date()
                     ->placeholder('-'),
-                TextEntry::make('nationality')
-                    ->placeholder('-'),
                 TextEntry::make('email')
                     ->label('Email address')
                     ->placeholder('-'),
                 TextEntry::make('phone')
-                    ->placeholder('-'),
-                TextEntry::make('alternate_phone')
                     ->placeholder('-'),
                 TextEntry::make('address')
                     ->placeholder('-')
@@ -36,7 +34,7 @@ class GuestInfolist
                     ->placeholder('-'),
                 TextEntry::make('country')
                     ->placeholder('-'),
-                TextEntry::make('postal_code')
+                TextEntry::make('pin_code')
                     ->placeholder('-'),
                 TextEntry::make('id_type')
                     ->placeholder('-'),
@@ -62,8 +60,9 @@ class GuestInfolist
                 TextEntry::make('internal_notes')
                     ->placeholder('-')
                     ->columnSpanFull(),
-                TextEntry::make('guest_photo')
-                    ->placeholder('-'),
+                ImageEntry::make('photo')
+                    ->disk('public')
+                    ->extraAttributes(['class' => 'rounded-lg']),
                 TextEntry::make('company_name')
                     ->placeholder('-'),
                 TextEntry::make('gst_number')
