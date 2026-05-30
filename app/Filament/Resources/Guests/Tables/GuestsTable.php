@@ -41,7 +41,7 @@ class GuestsTable
                 TextColumn::make('country')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                TextColumn::make('pin_code')
+                TextColumn::make('postal_code')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 TextColumn::make('id_type')

@@ -16,6 +16,10 @@ class BookingsTable
         return $table
             ->columns([
                 TextColumn::make('booking_reference')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable(),
+                TextColumn::make('booking_platform')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('room_number')
                     ->searchable(),
@@ -34,7 +38,7 @@ class BookingsTable
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('room_price')
-                    ->money()
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('tax_amount')
                     ->toggleable(isToggledHiddenByDefault: true)

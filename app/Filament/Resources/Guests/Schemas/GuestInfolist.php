@@ -34,7 +34,7 @@ class GuestInfolist
                     ->placeholder('-'),
                 TextEntry::make('country')
                     ->placeholder('-'),
-                TextEntry::make('pin_code')
+                TextEntry::make('postal_code')
                     ->placeholder('-'),
                 TextEntry::make('id_type')
                     ->placeholder('-'),

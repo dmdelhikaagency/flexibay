@@ -18,7 +18,7 @@ class Guest extends Model
         'city',
         'state',
         'country',
-        'pin_code',
+        'postal_code',
         'id_type',
         'id_number',
         'id_document_front',
