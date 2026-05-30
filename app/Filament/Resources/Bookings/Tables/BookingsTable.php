@@ -15,9 +15,6 @@ class BookingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('guest_id')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('booking_reference')
                     ->searchable(),
                 TextColumn::make('room_number')
@@ -29,18 +26,22 @@ class BookingsTable
                     ->date()
                     ->sortable(),
                 TextColumn::make('adults')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('children')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('room_price')
                     ->money()
                     ->sortable(),
                 TextColumn::make('tax_amount')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('total_amount')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('booking_status')
@@ -48,6 +49,7 @@ class BookingsTable
                 TextColumn::make('payment_status')
                     ->searchable(),
                 TextColumn::make('payment_method')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

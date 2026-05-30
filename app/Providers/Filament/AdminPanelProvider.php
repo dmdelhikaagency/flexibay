@@ -34,8 +34,11 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('4.5rem')
             ->login()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => Color::hex('#E9E7FF'),
+                // 'primary' => Color::Amber,
             ])
+            ->sidebarCollapsibleOnDesktop()
+            ->sidebarWidth('14rem')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([

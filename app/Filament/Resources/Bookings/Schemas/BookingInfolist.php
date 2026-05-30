@@ -11,8 +11,6 @@ class BookingInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('guest_id')
-                    ->numeric(),
                 TextEntry::make('booking_reference'),
                 TextEntry::make('room_number'),
                 TextEntry::make('check_in_date')

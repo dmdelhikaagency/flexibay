@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Bookings\Schemas;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
 use Filament\Schemas\Schema;
 
 class BookingForm
@@ -13,9 +14,6 @@ class BookingForm
     {
         return $schema
             ->components([
-                TextInput::make('guest_id')
-                    ->required()
-                    ->numeric(),
                 TextInput::make('booking_reference')
                     ->required(),
                 TextInput::make('room_number')
@@ -47,13 +45,40 @@ class BookingForm
                     ->numeric()
                     ->default(0.0)
                     ->rupees(),
-                TextInput::make('booking_status')
-                    ->required()
-                    ->default('pending'),
-                TextInput::make('payment_status')
-                    ->required()
-                    ->default('unpaid'),
-                TextInput::make('payment_method'),
+                Select::make('booking_platform')
+                    ->options([
+                        'walk-in' => 'Walk-In\'s',
+                        'website' => 'Website',
+                        'Third-Party Platform' => [
+                            'mmt' => 'MakeMyTrip',
+                            'booking.com' => 'Booking.com',
+                        ]
+                    ])
+                    ->searchable()
+                    ->required(),
+                Select::make('booking_status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'confirmed' => 'Confirmed',
+                        'cancelled' => 'Cancelled',
+                    ])
+                    ->searchable()
+                    ->required(),
+                Select::make('payment_status')
+                    ->options([
+                        'paid' => 'Paid',
+                        'unpaid' => 'Unpaid',
+                    ])
+                    ->searchable()
+                    ->required(),
+                Select::make('payment_method')
+                    ->options([
+                        'cash' => 'Cash',
+                        'card' => 'Credit/ Debit Card',
+                        'online' => 'Online Payment',
+                    ])
+                    ->searchable()
+                    ->required(),
                 Textarea::make('special_requests')
                     ->columnSpanFull(),
                 Textarea::make('internal_notes')
