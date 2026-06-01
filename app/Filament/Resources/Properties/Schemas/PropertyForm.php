@@ -22,16 +22,28 @@ class PropertyForm
                     ->columnSpanFull(),
                 FileUpload::make('featured_image')
                     ->image(),
+                FileUpload::make('image_option_1')
+                    ->image(),
+                FileUpload::make('image_option_2')
+                    ->image(),
+                FileUpload::make('image_option_3')
+                    ->image(),
+                FileUpload::make('image_option_4')
+                    ->image(),
                 TextInput::make('price')
                     ->required()
+                    ->numeric()
+                    ->rupees(),
+                TextInput::make('combo_breakfast_lunch_dinner')->label('Combo: Breakfast + Lunch + Dinner')
+                    ->numeric()
+                    ->rupees(),
+                TextInput::make('with_breakfast')
                     ->numeric()
                     ->rupees(),
                 TextInput::make('address'),
                 TextInput::make('city'),
                 TextInput::make('state'),
                 TextInput::make('postal_code'),
-                Toggle::make('has_meals')
-                    ->required(),
             ]);
     }
 }

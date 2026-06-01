@@ -21,8 +21,24 @@ class PropertyInfolist
                     ->columnSpanFull(),
                 ImageEntry::make('featured_image')
                     ->placeholder('-'),
+                ImageEntry::make('image_option_1')
+                    ->placeholder('-'),
+                ImageEntry::make('image_option_2')
+                    ->placeholder('-'),
+                ImageEntry::make('image_option_3')
+                    ->placeholder('-'),
+                ImageEntry::make('image_option_4')
+                    ->placeholder('-'),
                 TextEntry::make('price')
                     ->money('INR'),
+                TextEntry::make('combo_breakfast_lunch_dinner')
+                    ->label('Combo: Breakfast + Lunch + Dinner')
+                    ->money('INR')
+                    ->placeholder('-'),
+                TextEntry::make('with_breakfast')
+                    ->label('With Breakfast')
+                    ->money('INR')
+                    ->placeholder('-'),
                 TextEntry::make('address')
                     ->placeholder('-'),
                 TextEntry::make('city')
@@ -31,8 +47,6 @@ class PropertyInfolist
                     ->placeholder('-'),
                 TextEntry::make('postal_code')
                     ->placeholder('-'),
-                IconEntry::make('has_meals')
-                    ->boolean(),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

@@ -22,19 +22,37 @@ class PropertiesTable
                 TextColumn::make('title')
                     ->searchable(),
                 ImageColumn::make('featured_image'),
+                ImageColumn::make('image_option_1')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                ImageColumn::make('image_option_2')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                ImageColumn::make('image_option_3')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                ImageColumn::make('image_option_4')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('price')
                     ->money('INR')
                     ->sortable(),
+                TextColumn::make('combo_breakfast_lunch_dinner')
+                    ->label('Combo: B+L+D')
+                    ->money('INR')
+                    ->sortable(),
+                TextColumn::make('with_breakfast')
+                    ->label('With Breakfast')
+                    ->money('INR')
+                    ->sortable(),
                 TextColumn::make('address')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('city')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('state')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('postal_code')
-                    ->searchable(),
-                IconColumn::make('has_meals')
-                    ->boolean(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

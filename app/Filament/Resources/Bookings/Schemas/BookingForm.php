@@ -6,6 +6,8 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 
 class BookingForm
@@ -34,17 +36,29 @@ class BookingForm
                     ->required()
                     ->numeric()
                     ->default(0.0)
-                    ->rupees(),
-                TextInput::make('tax_amount')
+                    ->rupees()
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (Get $get, Set $set, $state) {
+                        $roomPrice = floatval($state ?? 0);
+                        $tax = round($roomPrice * 0.05, 2);
+                        $total = round($roomPrice + $tax, 2);
+                        $set('tax_amount', $tax);
+                        $set('total_amount', $total);
+                    }),
+                TextInput::make('tax_amount')->label('Tax (5%)')
                     ->required()
                     ->numeric()
                     ->default(0.0)
-                    ->rupees(),
+                    ->rupees()
+                    ->disabled()
+                    ->dehydrated(), // ensures disabled field still saves to DB
                 TextInput::make('total_amount')
                     ->required()
                     ->numeric()
                     ->default(0.0)
-                    ->rupees(),
+                    ->rupees()
+                    ->disabled()
+                    ->dehydrated(),
                 Select::make('booking_platform')
                     ->options([
                         'walk-in' => 'Walk-In\'s',
