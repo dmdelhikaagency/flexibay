@@ -40,7 +40,7 @@ class GuestForm
                 TextInput::make('city')->nullable(),
                 TextInput::make('state')->nullable(),
                 TextInput::make('country')->nullable(),
-                TextInput::make('pin_code')->nullable(),
+                TextInput::make('postal_code')->nullable(),
                 Select::make('id_type')
                     ->options([
                         'adhaar_card' => 'Aadhaar Card',

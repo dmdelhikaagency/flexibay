@@ -22,7 +22,7 @@ class PropertyInfolist
                 ImageEntry::make('featured_image')
                     ->placeholder('-'),
                 TextEntry::make('price')
-                    ->money(),
+                    ->money('INR'),
                 TextEntry::make('address')
                     ->placeholder('-'),
                 TextEntry::make('city')
