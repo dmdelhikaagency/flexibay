@@ -23,7 +23,7 @@ class PropertiesTable
                     ->searchable(),
                 ImageColumn::make('featured_image'),
                 TextColumn::make('price')
-                    ->money()
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('address')
                     ->searchable(),

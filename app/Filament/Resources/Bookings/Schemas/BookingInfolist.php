@@ -22,11 +22,11 @@ class BookingInfolist
                 TextEntry::make('children')
                     ->numeric(),
                 TextEntry::make('room_price')
-                    ->money(),
+                    ->money('INR'),
                 TextEntry::make('tax_amount')
-                    ->numeric(),
+                    ->money('INR'),
                 TextEntry::make('total_amount')
-                    ->numeric(),
+                    ->money('INR'),
                 TextEntry::make('booking_status'),
                 TextEntry::make('payment_status'),
                 TextEntry::make('payment_method')

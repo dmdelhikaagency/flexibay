@@ -34,15 +34,15 @@ class BookingsTable
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('room_price')
-                    ->money()
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('tax_amount')
                     ->toggleable(isToggledHiddenByDefault: true)
-                    ->numeric()
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('total_amount')
                     ->toggleable(isToggledHiddenByDefault: true)
-                    ->numeric()
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('booking_status')
                     ->searchable(),
