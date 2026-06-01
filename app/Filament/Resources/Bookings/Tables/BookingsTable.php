@@ -16,6 +16,10 @@ class BookingsTable
         return $table
             ->columns([
                 TextColumn::make('booking_reference')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable(),
+                TextColumn::make('booking_platform')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('room_number')
                     ->searchable(),

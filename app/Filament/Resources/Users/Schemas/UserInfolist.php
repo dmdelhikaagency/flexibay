@@ -17,6 +17,8 @@ class UserInfolist
                 TextEntry::make('email_verified_at')
                     ->dateTime()
                     ->placeholder('-'),
+                TextEntry::make('role')
+                    ->badge(),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
